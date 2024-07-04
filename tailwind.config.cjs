@@ -48,8 +48,8 @@ module.exports = {
    theme: {
       extend: {
          fontFamily: {
-            YesevaOne: ["Yeseva One", "serif"],
-            JosefinSans: ["Josefin Sans", "sans-serif"],
+            Poppins: ["Poppins", ...defaultTheme.fontFamily.sans],
+            RobotoMono: ["Roboto Mono", ...defaultTheme.fontFamily.mono],
          },
       },
    },

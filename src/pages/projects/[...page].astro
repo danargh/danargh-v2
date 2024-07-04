@@ -1,39 +1,26 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import HorizontalShopItem from '../../components/HorizontalShopItem.astro';
+import HorizontalProjectCard from '../../components/HorizontalProjectCard.astro';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths({ paginate }) {
-   const items = await getCollection('store');
-   items.sort((a, b) => b.data.updatedDate.valueOf() - a.data.updatedDate.valueOf());
-   return paginate(items, { pageSize: 10 });
+   const projects = await getCollection('project');
+   projects.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+   return paginate(projects, { pageSize: 10 });
 }
 const { page }: { page: any } = Astro.props;
 ---
 
-<BaseLayout title="Store" sideBarActiveItemID="store">
+<BaseLayout title="Project" sideBarActiveItemID="projects">
    <div class="mb-5">
-      <div class="text-3xl w-full font-bold">Store</div>
+      <div class="text-3xl w-full font-bold">Projects</div>
    </div>
 
    <ul>
       {
          page.data.map((item) => (
             <>
-               <HorizontalShopItem
-                  title={item.data.title}
-                  img={item.data.heroImage}
-                  desc={item.data.description}
-                  pricing={item.data.pricing}
-                  oldPricing={item.data.oldPricing}
-                  checkoutUrl={item.data.checkoutUrl}
-                  badge={item.data.badge}
-                  details={item.data.details}
-                  tags={item.data.tags}
-                  url={'/store/' + item.slug}
-                  custom_link={item.data.custom_link}
-                  custom_link_label={item.data.custom_link_label}
-               />
+               <HorizontalProjectCard title={item.data.title} description={item.data.description} pubDate={item.data.pubDate} heroImage={item.data.heroImage} stack={item.data.heroImage} github={item.data.github} demo={item.data.demo} url={'/projects/' + item.slug} />
                <div class="divider my-0" />
             </>
          ))

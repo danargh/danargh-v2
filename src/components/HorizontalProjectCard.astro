@@ -1,0 +1,30 @@
+---
+const { title, description, pubDate, heroImage, stack, demo, github, url, target = '_blank' } = Astro.props;
+import { Image } from 'astro:assets';
+const stack_url = url.split('/').slice(0, -1).join('/') + '/tag';
+console.log(stack);
+---
+
+<div class="rounded-lg border border-primary bg-base-100 hover:shadow-xl transition ease-in-out hover:scale-[102%]">
+   <a href={url}>
+      <div class="hero-content flex-col md:flex-row">
+         {heroImage && <Image src={heroImage} width={750} height={422} format="webp" alt={title} class="max-w-full md:max-w-[13rem] rounded-lg" />}
+         <div class="grow w-full">
+            <h1 class="text-xl font-bold">
+               {title}
+            </h1>
+            <p class="py-1 text-1xl">{description}</p>
+            <!-- <div class="card-actions justify-end">
+               {
+                  stack &&
+                     stack.map((stack) => (
+                        <a href={`${stack_url}/${stack}`} class="badge badge-outline">
+                           {stack}
+                        </a>
+                     ))
+               }
+            </div> -->
+         </div>
+      </div>
+   </a>
+</div>

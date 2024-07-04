@@ -27,13 +27,31 @@ const storeSchema = z.object({
    heroImage: z.string().optional(),
 });
 
+const projectSchema = z.object({
+   title: z.string(),
+   description: z.string(),
+   pubDate: z.coerce.date(),
+   heroImage: z.string().optional(),
+   stack: z
+      .array(z.string())
+      .refine((items) => new Set(items).size === items.length, {
+         message: "stack must be unique",
+      })
+      .optional(),
+   github: z.string().optional(),
+   demo: z.string().optional(),
+});
+
 export type BlogSchema = z.infer<typeof blogSchema>;
 export type StoreSchema = z.infer<typeof storeSchema>;
+export type ProjectSchema = z.infer<typeof projectSchema>;
 
 const blogCollection = defineCollection({ schema: blogSchema });
 const storeCollection = defineCollection({ schema: storeSchema });
+const projectCollection = defineCollection({ schema: projectSchema });
 
 export const collections = {
    blog: blogCollection,
    store: storeCollection,
+   project: projectCollection,
 };

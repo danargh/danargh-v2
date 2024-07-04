@@ -5,14 +5,25 @@ import HorizontalCard from '../components/HorizontalCard.astro';
 
 <BaseLayout title="Projects" sideBarActiveItemID="services">
    <div>
-      <div class="text-3xl w-full font-bold mb-5">Services Header</div>
+      <div class="text-3xl w-full font-bold mb-5">My Service</div>
    </div>
-
-   <HorizontalCard title="Service 1" img="/post_img.webp" desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." badge="NEW" url="#" />
-   <div class="divider my-0"></div>
-   <HorizontalCard title="Service 2" img="/post_img.webp" desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." url="#" />
-   <div class="divider my-0"></div>
-   <HorizontalCard title="Service 3" img="/post_img.webp" desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." url="#" badge="NEW" />
-   <div class="divider my-0"></div>
-   <HorizontalCard title="Service 4" img="/post_img.webp" desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." url="#" />
+   <!-- pricing table -->
+   <div class="flex gap-x-4">
+      {
+         Array.from({ length: 3 }).map((_, index) => (
+            <div class="card card-compact bg-base-100 w-96 shadow-xl">
+               <figure>
+                  <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" />
+               </figure>
+               <div class="card-body">
+                  <h2 class="card-title">Shoes!</h2>
+                  <p>If a dog chews shoes whose shoes does he choose?</p>
+                  <div class="card-actions justify-end">
+                     <button class="btn btn-primary">Buy Now</button>
+                  </div>
+               </div>
+            </div>
+         ))
+      }
+   </div>
 </BaseLayout>
