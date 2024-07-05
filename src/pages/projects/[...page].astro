@@ -20,7 +20,7 @@ const { page }: { page: any } = Astro.props;
       {
          page.data.map((item) => (
             <>
-               <HorizontalProjectCard title={item.data.title} description={item.data.description} pubDate={item.data.pubDate} heroImage={item.data.heroImage} stack={item.data.heroImage} github={item.data.github} demo={item.data.demo} url={'/projects/' + item.slug} />
+               <HorizontalProjectCard title={item.data.title} description={item.data.description} pubDate={item.data.pubDate} heroImage={item.data.heroImage} stack={item.data.stack} github={item.data.github} demo={item.data.demo} url={'/projects/' + item.slug} />
                <div class="divider my-0" />
             </>
          ))

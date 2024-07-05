@@ -1,13 +1,11 @@
 ---
-title: "Project 1"
-description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-pubDate: "Sep 10 2022"
-heroImage: "/post_img.webp"
-stack: ["nextjs", "tailwindcss"]
-github: "https://github.com"
-demo: "https://demo.com"
+title: "Wedding Invitation"
+description: "A service wedding invitation website built with Next.js and Tailwind CSS."
+pubDate: "Jul 07 2024"
+heroImage: "/project-1.png"
+stack: ["nextjs", "tailwindcss", "tanstack query"]
+github: "https://github.com/danargh/founders-frontend"
+demo: "https://wondrous-mochi-8c3813.netlify.app/"
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
-
-Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc. Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra massa massa ultricies mi.
+This project is a service wedding invitation website built with Next.js and Tailwind CSS. It is a simple and elegant website that allows users to create and send wedding invitations to their friends and family. The website is built with a modern design and is fully responsive. It also includes a contact form for users to RSVP to the wedding. The website is built with Next.js, a popular React framework, and Tailwind CSS, a utility-first CSS framework. The website is also optimized for SEO and performance. The website is built with a modern design and is fully responsive. It also includes a contact form for users to RSVP to the wedding. The website is built with Next.js, a popular React framework, and Tailwind CSS, a utility-first CSS framework. The website is also optimized for SEO and performance.

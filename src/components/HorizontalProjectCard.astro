@@ -1,8 +1,8 @@
 ---
-const { title, description, pubDate, heroImage, stack, demo, github, url, target = '_blank' } = Astro.props;
+const { title, description, pubDate, heroImage, stack, demo, github, url } = Astro.props;
 import { Image } from 'astro:assets';
-const stack_url = url.split('/').slice(0, -1).join('/') + '/tag';
-console.log(stack);
+import dayjs from 'dayjs';
+// const stack_url = url.split('/').slice(0, -1).join('/') + '/tag';
 ---
 
 <div class="rounded-lg border border-primary bg-base-100 hover:shadow-xl transition ease-in-out hover:scale-[102%]">
@@ -13,17 +13,11 @@ console.log(stack);
             <h1 class="text-xl font-bold">
                {title}
             </h1>
+            <p class="text-slate-500">{dayjs(pubDate).format('MMMM DD, YYYY')}</p>
             <p class="py-1 text-1xl">{description}</p>
-            <!-- <div class="card-actions justify-end">
-               {
-                  stack &&
-                     stack.map((stack) => (
-                        <a href={`${stack_url}/${stack}`} class="badge badge-outline">
-                           {stack}
-                        </a>
-                     ))
-               }
-            </div> -->
+            <div class="card-actions justify-start mt-2">
+               {stack && stack.map((s) => <p class="badge badge-outline">{s}</p>)}
+            </div>
          </div>
       </div>
    </a>

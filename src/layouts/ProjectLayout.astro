@@ -15,9 +15,8 @@ import { Image } from 'astro:assets';
 <BaseLayout title={title} description={description} image={heroImage} , ogType="article">
    <main class="md:flex md:justify-center">
       <article class="prose prose-lg max-w-[750px] prose-img:mx-auto">
-         {heroImage && <Image width={750} height={422} format="webp" src={heroImage} alt={title} class="w-full mb-6" />}
+         {heroImage && <Image width={800} height={400} src={heroImage} alt={title} class="w-full object-cover rounded-lg mb-6 border border-slate-200" />}
          <h1 class="title my-2 text-4xl font-bold">{title}</h1>
-         {pubDate && <time>{displayDate}</time>}
          {description && <p class="description my-2">{description}</p>}
          {
             demo && (
@@ -28,30 +27,18 @@ import { Image } from 'astro:assets';
          }
          {
             github && (
-               <a href={github} class="btn btn-secondary">
+               <a href={github} class="btn btn-outline">
                   GitHub
                </a>
             )
          }
          <br />
-         {
-            stack &&
-               stack.map((stack) => (
-                  <a href={`/project/stack/${stack}`} class="badge badge-outline ml-2 no-underline">
-                     {stack}
-                  </a>
-               ))
-         }
-         {
-            pubDate && (
-               <div>
-                  {' '}
-                  Last updated on <time>{pubDate}</time>{' '}
-               </div>
-            )
-         }
+         <div class="pt-3 flex gap-x-2 my-0">
+            {stack && stack.map((stack) => <p class="badge badge-outline font-bold p-3 no-underline">{stack}</p>)}
+         </div>
          <div class="divider my-2"></div>
          <slot />
+         {pubDate && <time>Published at: {displayDate}</time>}
       </article>
    </main>
 </BaseLayout>
