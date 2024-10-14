@@ -25,3 +25,97 @@ h5,
 h6 {
    font-family: "Poppins", sans-serif;
 }
+
+/* rotating text */
+:root {
+   --rotationDuration: 20s;
+   --hoverDuration: 0.3s;
+
+   --easeIn: cubic-bezier(0.32, 0, 0.67, 0);
+   --easeOut: cubic-bezier(0.33, 1, 0.68, 1);
+
+   --textColor: #2b3338;
+   --bgColor: #a6b8b1;
+   --accentColor: #e8d6c1;
+}
+
+.link {
+   position: absolute;
+   right: 10rem;
+   top: 2rem;
+   width: 10rem;
+   height: 10rem;
+   display: inline-block;
+   /* font: 300 1.55rem/1.4; */
+   font-size: 1.5rem;
+   text-transform: uppercase;
+   letter-spacing: 0.1175em;
+   word-spacing: 0.3em;
+   text-decoration: none;
+}
+
+@media (max-width: 768px) {
+   .link {
+      display: none;
+   }
+}
+
+.link__svg {
+   width: 100%;
+   height: auto;
+   transform-box: fill-box;
+   fill: var(--textColor);
+   stroke: var(--textColor);
+   stroke-width: 0.05em;
+   stroke-linecap: round;
+   stroke-linejoin: round;
+}
+
+.link__cloud {
+   transform-origin: 50% 50%;
+   animation: rotate normal infinite calc(3 * var(--rotationDuration)) linear;
+   fill: rgba(255, 255, 255, 0.15);
+}
+
+.link__face,
+.link__arrow {
+   transform-origin: 50% 50%;
+   transition: transform calc(var(--hoverDuration) / 2) var(--easeIn);
+}
+
+.link:hover .link__face,
+.link:hover .link__arrow {
+   transform: scale(1.1);
+   transition: transform var(--hoverDuration) var(--easeOut);
+}
+
+.link__arrow {
+   stroke-width: 0.075em;
+}
+
+.link__text {
+   animation: rotateReverse normal infinite var(--rotationDuration) linear;
+   transform-origin: 50% 50%;
+}
+
+.link:hover .link__text {
+   animation-play-state: paused;
+}
+
+.link--alt {
+   font-size: 1.15rem;
+   letter-spacing: 0;
+   word-spacing: 0;
+}
+
+@keyframes rotate {
+   to {
+      transform: rotate(360deg);
+   }
+}
+
+@keyframes rotateReverse {
+   to {
+      transform: rotate(-360deg);
+   }
+}
