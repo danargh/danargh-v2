@@ -5,7 +5,7 @@ import dayjs from 'dayjs';
 // const stack_url = url.split('/').slice(0, -1).join('/') + '/tag';
 ---
 
-<div class="rounded-lg border border-primary bg-base-100 hover:shadow-xl transition ease-in-out hover:scale-[102%]">
+<!-- <div class="rounded-lg border border-primary bg-base-100 hover:shadow-xl transition ease-in-out hover:scale-[102%]">
    <a href={url}>
       <div class="hero-content flex-col md:flex-row">
          {heroImage && <Image src={heroImage} width={750} height={422} format="webp" alt={title} class="max-w-full md:max-w-[13rem] rounded-lg" />}
@@ -21,4 +21,20 @@ import dayjs from 'dayjs';
          </div>
       </div>
    </a>
+</div> -->
+<div class="parent">
+   <div class="card flex">
+      <div class="h-[200px]">
+         <img class="object-cover" src={heroImage} alt={heroImage} />
+      </div>
+      <div class="content-box">
+         <span class="card-title text__gradient font-[700]">{title}</span>
+         <p class="text-slate-500">{dayjs(pubDate).format('MMMM DD, YYYY')}</p>
+         <p class="card-content">{description}</p>
+         <div class="card-actions justify-start mt-2">
+            {stack && stack.map((s) => <p class="badge badge-outline">{s}</p>)}
+         </div>
+         <a href={url} class="see-more">See More</a>
+      </div>
+   </div>
 </div>

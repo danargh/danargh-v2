@@ -1,10 +1,10 @@
 ---
-const { title, img, desc, url, badge, tags, target = '_blank' } = Astro.props;
+const { title, img, desc, url, badge, tags, target = '_blank', stack } = Astro.props;
 import { Image } from 'astro:assets';
 const tag_url = url.split('/').slice(0, -1).join('/') + '/tag';
 ---
 
-<div class="rounded-lg border border-primary bg-base-100 hover:shadow-xl transition ease-in-out hover:scale-[102%]">
+<!-- <div class="rounded-lg border border-primary bg-base-100 hover:shadow-xl transition ease-in-out hover:scale-[102%]">
    <a href={url} target={target}>
       <div class="hero-content flex-col md:flex-row">
          {img && <Image src={img} width={750} height={422} format="webp" alt={title} class="max-w-full md:max-w-[13rem] rounded-lg" />}
@@ -27,4 +27,27 @@ const tag_url = url.split('/').slice(0, -1).join('/') + '/tag';
          </div>
       </div>
    </a>
+</div> -->
+<div class="parent">
+   <div class="card flex">
+      <div class="h-[200px]">
+         <img class="object-cover" src={img} alt={img} />
+      </div>
+      <div class="content-box">
+         {stack && <div class="card-content badge badge-secondary mx-2">{badge}</div>}
+         <span class="card-title text__gradient font-[700]">{title}</span>
+         <p class="card-content">{desc}</p>
+         <div class="card-actions justify-end">
+            {
+               tags &&
+                  tags.map((tag) => (
+                     <a href={`${tag_url}/${tag}`} class="badge badge-outline">
+                        {tag}
+                     </a>
+                  ))
+            }
+         </div>
+         <a href={url} target={target} class="see-more">See More</a>
+      </div>
+   </div>
 </div>

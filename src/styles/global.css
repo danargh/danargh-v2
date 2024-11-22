@@ -34,6 +34,7 @@ h6 {
    --easeIn: cubic-bezier(0.32, 0, 0.67, 0);
    --easeOut: cubic-bezier(0.33, 1, 0.68, 1);
 
+   --primaryColor: #fad961;
    --textColor: #2b3338;
    --bgColor: #a6b8b1;
    --accentColor: #e8d6c1;
@@ -118,4 +119,159 @@ h6 {
    to {
       transform: rotate(-360deg);
    }
+}
+
+/* my style */
+.bg__glass {
+   /* From https://css.glass */
+   background: rgba(255, 255, 255, 0.17);
+   border-radius: 4px;
+   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+   backdrop-filter: blur(9.3px);
+   -webkit-backdrop-filter: blur(9.3px);
+   border: 1px solid rgba(255, 255, 255, 0.29);
+}
+
+/* custom connect button */
+.connect__btn {
+   font-size: 16px;
+   font-weight: 500;
+
+   background: linear-gradient(265.27deg, #0000 20.55%, #fad961 94.17%);
+   background-color: #fad961;
+   transition: all 400ms ease-in;
+
+   color: black;
+   padding: 0.7em 1em;
+   padding-left: 0.9em;
+   display: flex;
+   align-items: center;
+   border: none;
+   border-radius: 8px;
+   overflow: hidden;
+   /* transition: all 0.5s; */
+   cursor: pointer;
+}
+
+.connect__btn span {
+   display: block;
+   margin-left: 0.3em;
+   transition: all 0.3s ease-in-out;
+}
+
+.connect__btn svg {
+   display: block;
+   transform-origin: center center;
+   transition: transform 0.3s ease-in-out;
+}
+
+.connect__btn:hover .svg-wrapper {
+   animation: fly-1 0.6s ease-in-out infinite alternate;
+}
+
+.connect__btn:hover svg {
+   transform: translateX(3.5em) rotate(45deg) scale(1.1);
+}
+
+.connect__btn:hover {
+   background-color: #f76b1c;
+}
+
+.connect__btn:hover span {
+   transform: translateX(10em);
+}
+
+.connect__btn:active {
+   transform: scale(0.95);
+}
+
+@keyframes fly-1 {
+   from {
+      transform: translateY(0.1em);
+   }
+
+   to {
+      transform: translateY(-0.1em);
+   }
+}
+
+/* 3d card style */
+
+/* From Uiverse.io by Smit-Prajapati */
+.parent {
+   width: 100%;
+   padding: 20px;
+   perspective: 1000px;
+   color: black;
+}
+
+.card {
+   padding-top: 50px;
+   /* border-radius: 10px; */
+   border: 3px solid rgb(255, 255, 255);
+   transform-style: preserve-3d;
+   background: linear-gradient(135deg, #0000 18.75%, #f3f3f3 0 31.25%, #0000 0),
+      repeating-linear-gradient(45deg, #f3f3f3 -6.25% 6.25%, #ffffff 0 18.75%);
+   background-size: 60px 60px;
+   background-position: 0 0, 0 0;
+   background-color: #f0f0f0;
+   width: 100%;
+   box-shadow: rgba(142, 142, 142, 0.3) 0px 30px 30px -10px;
+   transition: all 0.5s ease-in-out;
+}
+
+.card:hover {
+   background-position: -100px 100px, -100px 100px;
+   transform: rotate3d(0.5, 1, 0, 30deg);
+}
+
+.content-box {
+   background: rgb(255, 255, 255);
+   /* border-radius: 10px 100px 10px 10px; */
+   transition: all 0.5s ease-in-out;
+   padding: 30px 25px 25px 25px;
+   transform-style: preserve-3d;
+}
+
+.content-box .card-title {
+   display: inline-block;
+   font-size: 25px;
+   font-weight: 900;
+   transition: all 0.5s ease-in-out;
+   transform: translate3d(0px, 0px, 50px);
+}
+
+.content-box .card-title:hover {
+   transform: translate3d(0px, 0px, 60px);
+}
+
+.content-box .card-content {
+   margin-top: 10px;
+   font-size: 12px;
+   font-weight: 700;
+   transition: all 0.5s ease-in-out;
+   transform: translate3d(0px, 0px, 30px);
+}
+
+.content-box .card-content:hover {
+   transform: translate3d(0px, 0px, 60px);
+}
+
+.content-box .see-more {
+   cursor: pointer;
+   margin-top: 1rem;
+   display: inline-block;
+   font-weight: 900;
+   font-size: 14px;
+   text-transform: uppercase;
+   color: black;
+   border-radius: 6px;
+   background: #fad961;
+   padding: 0.5rem 0.9rem;
+   transition: all 0.5s ease-in-out;
+   transform: translate3d(0px, 0px, 20px);
+}
+
+.content-box .see-more:hover {
+   transform: translate3d(0px, 0px, 60px);
 }

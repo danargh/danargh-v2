@@ -16,12 +16,11 @@ const { page }: { page: any } = Astro.props;
       <div class="text-3xl w-full font-bold">Projects</div>
    </div>
 
-   <ul>
+   <ul class="grid grid-cols-1 md:grid-cols-2">
       {
          page.data.map((item) => (
             <>
                <HorizontalProjectCard title={item.data.title} description={item.data.description} pubDate={item.data.pubDate} heroImage={item.data.heroImage} stack={item.data.stack} github={item.data.github} demo={item.data.demo} url={'/projects/' + item.slug} />
-               <div class="divider my-0" />
             </>
          ))
       }

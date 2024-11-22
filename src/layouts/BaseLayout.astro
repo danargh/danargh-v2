@@ -8,6 +8,21 @@ import { ViewTransitions } from 'astro:transitions';
 import { SITE_TITLE, SITE_DESCRIPTION, TRANSITION_API } from '../config';
 
 const { image, title = SITE_TITLE, description = SITE_DESCRIPTION, includeSidebar = true, sideBarActiveItemID, ogType } = Astro.props;
+const url = Astro.url;
+
+function generateBreadcrumbs(urlURL: URL) {
+   let url = new String(urlURL);
+   const parts = url.split('/').filter((part, index) => part !== '' && index > 2); // Memisahkan setiap bagian URL
+   const breadcrumbs = parts.map((part) => {
+      return capitalize(part);
+   });
+
+   return breadcrumbs.length === 1 ? [] : breadcrumbs.join(' > ');
+}
+
+function capitalize(word: string) {
+   return word.charAt(0).toUpperCase() + word.slice(1);
+}
 ---
 
 <!doctype html>
@@ -25,6 +40,7 @@ const { image, title = SITE_TITLE, description = SITE_DESCRIPTION, includeSideba
                <div class="z-0 absolute pointer-events-none inset-0 flex items-center justify-center bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
                <div class="z-10 md:flex md:justify-center">
                   <main class="h-fit p-6 pt-10 lg:max-w-[900px] max-w-[100vw]">
+                     <p class="mb-2 text-slate-600 font-bold">{generateBreadcrumbs(url)}</p>
                      <slot />
                   </main>
                </div>

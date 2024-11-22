@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import HorizontalCard from '../components/HorizontalCard.astro';
 import { getCollection } from 'astro:content';
 import createSlug from '../lib/createSlug';
+import Card from '@components/Card.astro';
 
 const posts = (await getCollection('blog')).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 const projects = (await getCollection('project')).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
@@ -39,34 +40,46 @@ const last_projects = projects.slice(0, 3);
          <q class="text-xl">Discipline is the key</q>
          <p class="font-bold">- Morning Programmer🔆</p>
       </div>
-      <div class="mt-8">
-         <a class="btn btn-primary font-Poppins text-sm" href="https://www.linkedin.com/in/danargh/" target="_blank"> Let's Connect!</a>
-      </div>
+
+      <a class="connect__btn font-Poppins mt-8 w-min" href="https://www.linkedin.com/in/danargh/" target="_blank">
+         <div class="svg-wrapper-1">
+            <div class="svg-wrapper">
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                  <path fill="none" d="M0 0h24v24H0z"></path>
+                  <path fill="currentColor" d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"></path>
+               </svg>
+            </div>
+         </div>
+         <span class="whitespace-nowrap">Let's Connect!</span>
+      </a>
    </div>
 
    <div>
       <div class="text-3xl w-full font-bold mb-2">My last projects {'</>'}</div>
    </div>
 
-   {
-      last_projects.map((project) => (
-         <>
-            <HorizontalCard title={project.data.title} img={project.data.heroImage} desc={project.data.description} url={'/projects/' + project.slug} target="_self" />
-            <div class="divider my-0" />
-         </>
-      ))
-   }
+   <section class="grid grid-cols-1 md:grid-cols-2">
+      {
+         last_projects.map((project) => (
+            <section>
+               <HorizontalCard title={project.data.title} img={project.data.heroImage} desc={project.data.description} url={'/projects/' + project.slug} target="_self" />
+               <div class="divider my-0" />
+            </section>
+         ))
+      }
+   </section>
 
    <div>
       <div class="text-3xl w-full font-bold mb-5 mt-10">Latest from blog</div>
    </div>
 
-   {
-      last_posts.map((post) => (
-         <>
-            <HorizontalCard title={post.data.title} img={post.data.heroImage} desc={post.data.description} url={'/blog/' + createSlug(post.data.title, post.slug)} target="_self" badge={post.data.badge} />
-            <div class="divider my-0" />
-         </>
-      ))
-   }
+   <section class="grid grid-cols-1 md:grid-cols-2">
+      {
+         last_posts.map((post) => (
+            <>
+               <HorizontalCard title={post.data.title} img={post.data.heroImage} desc={post.data.description} url={'/blog/' + createSlug(post.data.title, post.slug)} target="_self" badge={post.data.badge} />
+            </>
+         ))
+      }
+   </section>
 </BaseLayout>
