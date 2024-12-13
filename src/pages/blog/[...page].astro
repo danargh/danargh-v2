@@ -25,12 +25,9 @@ const { page }: { page: { data: any[]; url: { prev?: string; next?: string } } }
             <p>There are no blog posts to show at the moment. Check back later!</p>
          </div>
       ) : (
-         <ul>
+         <ul class="grid grid-cols-1 md:grid-cols-2">
             {page.data.map((post) => (
-               <>
-                  <HorizontalCard title={post.data.title} img={post.data.heroImage} desc={post.data.description} url={'/blog/' + createSlug(post.data.title, post.slug)} target="_self" badge={post.data.badge} tags={post.data.tags} />
-                  <div class="divider my-0" />
-               </>
+               <HorizontalCard title={post.data.title} img={post.data.heroImage} desc={post.data.description} url={'/blog/' + createSlug(post.data.title, post.slug)} target="_self" badge={post.data.badge} tags={post.data.tags} />
             ))}
          </ul>
       )

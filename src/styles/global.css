@@ -230,7 +230,12 @@ h6 {
    /* border-radius: 10px 100px 10px 10px; */
    transition: all 0.5s ease-in-out;
    padding: 30px 25px 25px 25px;
-   transform-style: preserve-3d;
+   /* transform-style: preserve-3d; */
+}
+@media (max-width: 768px) {
+   .card:hover {
+      transform: none;
+   }
 }
 
 .content-box .card-title {
@@ -238,11 +243,11 @@ h6 {
    font-size: 25px;
    font-weight: 900;
    transition: all 0.5s ease-in-out;
-   transform: translate3d(0px, 0px, 50px);
+   /* transform: translate3d(0px, 0px, 50px); */
 }
 
 .content-box .card-title:hover {
-   transform: translate3d(0px, 0px, 60px);
+   /* transform: translate3d(0px, 0px, 60px); */
 }
 
 .content-box .card-content {
@@ -250,11 +255,11 @@ h6 {
    font-size: 12px;
    font-weight: 700;
    transition: all 0.5s ease-in-out;
-   transform: translate3d(0px, 0px, 30px);
+   /* transform: translate3d(0px, 0px, 30px); */
 }
 
 .content-box .card-content:hover {
-   transform: translate3d(0px, 0px, 60px);
+   /* transform: translate3d(0px, 0px, 60px); */
 }
 
 .content-box .see-more {
@@ -269,9 +274,9 @@ h6 {
    background: #fad961;
    padding: 0.5rem 0.9rem;
    transition: all 0.5s ease-in-out;
-   transform: translate3d(0px, 0px, 20px);
+   /* transform: translate3d(0px, 0px, 20px); */
 }
 
 .content-box .see-more:hover {
-   transform: translate3d(0px, 0px, 60px);
+   background-color: #f76b1c;
 }

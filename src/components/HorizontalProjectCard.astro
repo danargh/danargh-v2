@@ -32,7 +32,7 @@ import dayjs from 'dayjs';
          <p class="text-slate-500">{dayjs(pubDate).format('MMMM DD, YYYY')}</p>
          <p class="card-content">{description}</p>
          <div class="card-actions justify-start mt-2">
-            {stack && stack.map((s) => <p class="badge badge-outline">{s}</p>)}
+            {stack && stack.slice(0, 2).map((s) => <p class="badge badge-outline">{s}</p>)}
          </div>
          <a href={url} class="see-more">See More</a>
       </div>

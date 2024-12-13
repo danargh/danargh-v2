@@ -35,8 +35,8 @@ const tag_url = url.split('/').slice(0, -1).join('/') + '/tag';
       </div>
       <div class="content-box">
          {stack && <div class="card-content badge badge-secondary mx-2">{badge}</div>}
-         <span class="card-title text__gradient font-[700]">{title}</span>
-         <p class="card-content">{desc}</p>
+         <p class="text-[1.4rem] text__gradient font-[700] line-clamp-2">{title}</p>
+         <p class="card-content line-clamp-2">{desc}</p>
          <div class="card-actions justify-end">
             {
                tags &&

@@ -4,74 +4,29 @@ import TimeLineElement from '../components/cv/TimeLine.astro';
 ---
 
 <BaseLayout title="Resume" sideBarActiveItemID="cv">
-   <div class="mb-5">
-      <h2 class="text-3xl w-full font-bold">Profile</h2>
-   </div>
-
-   <div class="mb-10 text-justify">
-      🚀 I'm committed to staying <b>up-to-date</b> with the latest trends and technologies in web development. I'm currently exploring backend & devops technology, and I'm excited about the opportunity to tackle <b>new challenges and contribute</b> to innovative projects.
-   </div>
-
-   <div class="mb-5">
-      <h2 class="text-3xl w-full font-bold">Education</h2>
-   </div>
-
-   <div class="time-line-container grid gap-4 mb-10">
-      <TimeLineElement title="UPN Veteran Yogyakarta, Yogyakarta" subtitle="2020 to 2024 as Student" />
-      <TimeLineElement title="SMAN 1 Gombong" subtitle="2017 to 2020 as Student" />
-   </div>
-
-   <div class="mb-5">
-      <h2 class="text-3xl w-full font-bold">Experience</h2>
-   </div>
-
-   <div class="time-line-container mb-10">
-      <TimeLineElement title="Job Title at Project or Company Name" subtitle="From [Start Date] to [End Date] at [Company], [City], [Country]">
-         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-         esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
-      </TimeLineElement>
-      <TimeLineElement title="Job Title at Project or Company Name" subtitle="From [Start Date] to [End Date] at [Company], [City], [Country]">
-         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-         esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
-      </TimeLineElement>
-      <TimeLineElement title="Job Title at Project or Company Name" subtitle="From [Start Date] to [End Date] at [Company], [City], [Country]">
-         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-         esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
-      </TimeLineElement>
-   </div>
-
-   <div class="mb-5">
-      <h2 class="text-3xl w-full font-bold">Certifications</h2>
-   </div>
-
-   <ul class="list-disc mx-6 mb-10 grid gap-2">
-      <li>
-         <a href="#" target="_blank"> Certification Name (with link)</a>
-      </li>
-      <li>
-         <a href="#" target="_blank"> Certification Name (with link)</a>
-      </li>
-   </ul>
-
-   <div class="mb-5">
-      <h2 class="text-3xl w-full font-bold">Skills</h2>
-   </div>
-
-   <ul class="list-disc md:columns-5 columns-2 mx-6">
-      <li>Skill Name</li>
-      <li>Skill Name</li>
-      <li>Skill Name</li>
-      <li>Skill Name</li>
-      <li>Skill Name</li>
-      <li>Skill Name</li>
-      <li>Skill Name</li>
-      <li>Skill Name</li>
-      <li>Skill Name</li>
-      <li>Skill Name</li>
-      <li>Skill Name</li>
-      <li>Skill Name</li>
-      <li>Skill Name</li>
-      <li>Skill Name</li>
-      <li>Skill Name</li>
-   </ul>
+   <button id="download-btn" class="connect__btn font-Poppins mt-8"> Download CV </button>
 </BaseLayout>
+
+<script>
+   const downloadBtn = document.querySelector('#download-btn');
+   downloadBtn?.addEventListener('click', () => {
+      fetch('cv-ats-danar.pdf')
+         .then((response) => {
+            if (!response.ok) {
+               throw new Error('Network response was not ok');
+            }
+            return response.blob();
+         })
+         .then((blob) => {
+            const fileURL = window.URL.createObjectURL(blob);
+            const alink = document.createElement('a');
+            alink.href = fileURL;
+            alink.download = 'cv-ats-danar.pdf';
+            alink.click();
+            window.URL.revokeObjectURL(fileURL);
+         })
+         .catch((error) => {
+            console.error('Error downloading resume:', error);
+         });
+   });
+</script>
