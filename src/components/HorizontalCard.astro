@@ -28,12 +28,12 @@ const tag_url = url.split('/').slice(0, -1).join('/') + '/tag';
       </div>
    </a>
 </div> -->
-<div class="parent">
-   <div class="card flex">
+<div class="parent h-full">
+   <div class="card flex h-full">
       <div class="h-[200px]">
          <img class="object-cover" src={img} alt={img} />
       </div>
-      <div class="content-box">
+      <div class="content-box h-full">
          {stack && <div class="card-content badge badge-secondary mx-2">{badge}</div>}
          <p class="text-[1.4rem] text__gradient font-[700] line-clamp-2">{title}</p>
          <p class="card-content line-clamp-2">{desc}</p>

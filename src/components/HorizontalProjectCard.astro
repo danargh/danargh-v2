@@ -23,11 +23,11 @@ import dayjs from 'dayjs';
    </a>
 </div> -->
 <div class="parent">
-   <div class="card flex">
+   <div class="card flex h-full">
       <div class="h-[200px]">
-         <img class="object-cover" src={heroImage} alt={heroImage} />
+         <img class="object-contain" src={heroImage} alt={heroImage} />
       </div>
-      <div class="content-box">
+      <div class="content-box h-full">
          <span class="card-title text__gradient font-[700]">{title}</span>
          <p class="text-slate-500">{dayjs(pubDate).format('MMMM DD, YYYY')}</p>
          <p class="card-content">{description}</p>
